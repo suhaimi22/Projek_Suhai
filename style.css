@@ -197,3 +197,26 @@ nav a:hover {
     line-height: 1.5;
 }
 
+.game-section {
+    padding: 80px 10%;
+    background: #eee;
+    text-align: center;
+}
+
+.game-section h2 {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.game-section h2 span {
+    color: #19c900;
+}
+
+.game-section p {
+    color: #555;
+}
+
+.btn.hijau {
+    background: #19c900;
+    color: white;
+}
