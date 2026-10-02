@@ -8,12 +8,25 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Navbar */
 header {
     height: 80px;
-    background: #d9d9d9;
+    background: #a6cce4;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 35px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 48px;
+}
+
+.logo h2 {
+    font-size: 24px;
 }
