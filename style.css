@@ -47,3 +47,54 @@ nav a {
 nav a:hover {
     color: green;
 }
+
+.hero {
+    height: 600px;
+    background-image: url("BG.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 28%;
+    left: 10%;
+    color: white;
+}
+
+.welcome {
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 65px;
+    margin: 10px 0 25px;
+}
+
+.hero h1 span {
+    color: #19c900;
+}
+
+.quote {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: rgb(63, 225, 9);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
