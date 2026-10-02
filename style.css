@@ -10,7 +10,7 @@ body {
 
 header {
     height: 80px;
-    background: #a6cce4;
+    background: #848484;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,4 +29,21 @@ header {
 
 .logo h2 {
     font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 13px;
+
+}
+
+nav a:hover {
+    color: green;
 }
