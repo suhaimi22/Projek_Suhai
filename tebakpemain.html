@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebak Pemain - Football</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f6ff;
+            color: #222;
+        }
+
+        header {
+            height: 70px;
+            background: #777;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 45px;
+        }
+
+        .logo h2 {
+            font-size: 22px;
+        }
+
+        .menu {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .menu a,
+        button {
+            background: #005ac9;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu a:hover,
+        button:hover {
+            background: #003f91;
+        }
+
+        .game {
+            max-width: 700px;
+            margin: 20px auto 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #0002;
+            text-align: center;
+            border-bottom: 5px solid #005ac9;
+        }
+
+        h1 {
+            color: #005ac9;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .petunjuk {
+            background: #f1f6ff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .petunjuk h3 {
+            color: #005ac9;
+            margin-bottom: 10px;
+        }
+
+        .petunjuk p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #d5e1f5;
+            border-radius: 25px;
+            outline: none;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #005ac9;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .benar {
+            color: #159447;
+        }
+
+        .salah {
+            color: #d33;
+        }
+
+        #skor {
+            margin-top: 15px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        #lanjut {
+            display: none;
+            margin-top: 15px;
+        }
+
+        #selesai {
+            display: none;
+        }
+
+        #nilai {
+            font-size: 35px;
+            color: #005ac9;
+            font-weight: bold;
+            margin: 15px;
+        }
+
+        footer {
+            background-image: url("putih.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 30px 10px;
+            color: rgb(3, 3, 3);
+        }
+
+        footer p {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            .menu {
+                flex-direction: column;
+            }
+
+            .menu a {
+                text-align: center;
+            }
+
+            .game {
+                margin: 15px;
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+            <h2>FOOTBALL</h2>
+        </div>
+    </header>
+
+    <div class="menu">
+        <a href="index.html">← Beranda</a>
+        <a href="Beranda_Game.html">Daftar Game</a>
+    </div>
+
+    <div class="game" id="game">
+
+        <h1>⚽ Tebak Pemain</h1>
+
+        <p class="info" id="nomor">
+            Pertanyaan 1 dari 3
+        </p>
+
+        <div class="petunjuk">
+
+            <h3>🔎 Petunjuk</h3>
+
+            <p id="petunjuk1"></p>
+            <p id="petunjuk2"></p>
+            <p id="petunjuk3"></p>
+            <p id="petunjuk4"></p>
+
+        </div>
+
+        <input
+            type="text"
+            id="jawaban"
+            placeholder="Masukkan nama pemain..."
+        >
+
+        <button onclick="cekJawaban()">
+            Cek Jawaban
+        </button>
+
+        <p id="hasil"></p>
+
+        <p id="skor">
+            Skor: 0
+        </p>
+
+        <button id="lanjut" onclick="lanjut()">
+            Pertanyaan Berikutnya →
+        </button>
+
+    </div>
+
+
+    <!-- HASIL AKHIR -->
+
+    <div class="game" id="selesai">
+
+        <h1>🏆 Permainan Selesai!</h1>
+
+        <p>Skor kamu:</p>
+
+        <div id="nilai">0 / 3</div>
+
+        <p id="pesan"></p>
+
+        <br>
+
+        <button onclick="mainLagi()">
+            🔄 Main Lagi
+        </button>
+
+    </div>
+
+
+    <footer>
+        <h3><img src="logo.png" alt="Football" width="20" height="20"> FOOTBALL</h3>
+        <p>Sepak bola menyatukan kita melalui permainan</p>
+        <p>© 2026 Football</p>
+    </footer>
+
+
+    <script>
+
+        let nomor = 0;
+        let skor = 0;
+
+        let pemain = [
+
+            {
+                petunjuk: [
+                    "Saya berasal dari Georgia.",
+                    "Saya bermain sebagai pemain sayap.",
+                    "Saya dikenal dengan dribel dan kecepatan.",
+                    "Saya pernah bermain untuk Napoli."
+                ],
+                jawaban: [
+                    "khvicha kvaratskhelia",
+                    "kvaratskhelia",
+                    "kvarat",
+                    "kvaratselia"
+                ]
+            },
+
+            {
+                petunjuk: [
+                    "Saya berasal dari Portugal.",
+                    "Saya dikenal sebagai seorang striker dan sayap.",
+                    "Saya pernah bermain untuk Manchester United.",
+                    "Saya terkenal dengan nomor punggung 7."
+                ],
+                jawaban: [
+                    "cristiano ronaldo",
+                    "ronaldo",
+                    "cr7",
+                    "dodo"
+                ]
+            },
+
+            {
+                petunjuk: [
+                    "Saya berasal dari Argentina.",
+                    "Saya dikenal dengan kemampuan menggiring bola.",
+                    "Saya pernah bermain untuk Barcelona.",
+                    "Saya memenangkan Piala Dunia 2022."
+                ],
+                jawaban: [
+                    "lionel messi",
+                    "messi",
+                    "lionel"
+                ]
+            }
+
+        ];
+
+
+        function tampilkanPemain() {
+
+            let data = pemain[nomor];
+
+            document.getElementById("nomor").textContent =
+                "Pertanyaan " + (nomor + 1) + " dari 3";
+
+            document.getElementById("petunjuk1").textContent =
+                "• " + data.petunjuk[0];
+
+            document.getElementById("petunjuk2").textContent =
+                "• " + data.petunjuk[1];
+
+            document.getElementById("petunjuk3").textContent =
+                "• " + data.petunjuk[2];
+
+            document.getElementById("petunjuk4").textContent =
+                "• " + data.petunjuk[3];
+
+            document.getElementById("jawaban").value = "";
+
+            document.getElementById("hasil").textContent = "";
+
+            document.getElementById("lanjut").style.display = "none";
+
+            document.getElementById("jawaban").focus();
+        }
+
+
+        function cekJawaban() {
+
+            let jawaban = document
+                .getElementById("jawaban")
+                .value
+                .toLowerCase()
+                .trim();
+
+            let hasil = document.getElementById("hasil");
+
+            let data = pemain[nomor];
+
+            if (data.jawaban.includes(jawaban)) {
+
+                skor++;
+
+                hasil.textContent =
+                    "✅ Benar! Jawaban kamu tepat.";
+
+                hasil.className = "benar";
+
+            } else {
+
+                hasil.textContent =
+                    "❌ Salah! Jawaban yang benar adalah " +
+                    data.jawaban[0];
+
+                hasil.className = "salah";
+            }
+
+            document.getElementById("skor").textContent =
+                "Skor: " + skor;
+
+            document.getElementById("lanjut").style.display =
+                "inline-block";
+
+            document.getElementById("jawaban").disabled = true;
+        }
+
+
+        function lanjut() {
+
+            nomor++;
+
+            if (nomor < pemain.length) {
+
+                document.getElementById("jawaban").disabled = false;
+
+                tampilkanPemain();
+
+            } else {
+
+                tampilkanHasil();
+
+            }
+        }
+
+
+        function tampilkanHasil() {
+
+            document.getElementById("game").style.display = "none";
+
+            document.getElementById("selesai").style.display = "block";
+
+            document.getElementById("nilai").textContent =
+                skor + " / 3";
+
+            if (skor === 3) {
+
+                document.getElementById("pesan").textContent =
+                    "🔥 Sempurna! Kamu jago menebak pemain.";
+
+            } else if (skor >= 2) {
+
+                document.getElementById("pesan").textContent =
+                    "👏 Bagus! Pengetahuan pemainmu cukup baik.";
+
+            } else {
+
+                document.getElementById("pesan").textContent =
+                    "⚽ Coba lagi untuk mendapatkan skor lebih tinggi.";
+
+            }
+        }
+
+
+        function mainLagi() {
+
+            nomor = 0;
+            skor = 0;
+
+            document.getElementById("game").style.display =
+                "block";
+
+            document.getElementById("selesai").style.display =
+                "none";
+
+            document.getElementById("skor").textContent =
+                "Skor: 0";
+
+            document.getElementById("jawaban").disabled =
+                false;
+
+            tampilkanPemain();
+        }
+
+
+        tampilkanPemain();
+
+    </script>
+
+</body>
+
+</html>

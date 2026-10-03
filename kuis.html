@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Sepak Bola</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;      /* supaya pas di browser HP */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;                 /* isi halaman mengisi ruang kosong */
+        }       
+
+        header {
+            height: 70px;
+            background: #777;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 45px;
+        }
+
+        .logo h2 {
+            font-size: 22px;
+        }
+
+        .menu {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .menu a,
+        button {
+            background: #005ac9;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu a:hover,
+        button:hover {
+            background: #003f91;
+        }
+
+        .kuis {
+            max-width: 700px;
+            margin: 20px auto 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #0002;
+            text-align: center;
+            border-bottom: 5px solid #005ac9;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress div {
+            height: 100%;
+            width: 0;
+            background: #005ac9;
+        }
+
+        h1 {
+            color: #005ac9;
+            margin-bottom: 20px;
+        }
+
+        #soal {
+            font-size: 21px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .pilihan {
+            display: grid;
+            gap: 10px;
+        }
+
+        .pilihan button {
+            background: #f1f6ff;
+            color: #222;
+            border: 2px solid #d5e1f5;
+            text-align: left;
+        }
+
+        .pilihan button:hover {
+            border-color: #005ac9;
+            background: #e5efff;
+        }
+
+        .benar {
+            background: #c9f3d8 !important;
+            border-color: #159447 !important;
+            color: #08752f !important;
+        }
+
+        .salah {
+            background: #ffd5d5 !important;
+            border-color: #d33 !important;
+            color: #a00 !important;
+        }
+
+        #penjelasan {
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        #hasil {
+            display: none;
+        }
+
+        #emoji {
+            font-size: 60px;
+            margin: 10px;
+        }
+
+        #nilai {
+            font-size: 40px;
+            font-weight: bold;
+            color: #005ac9;
+            margin: 10px;
+        }
+
+        footer {
+            background-image: url("putih.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 30px 10px;
+            color: rgb(3, 3, 3);
+            margin-top: auto;
+        }
+
+        footer h3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        footer p {
+            color: rgb(3, 3, 3);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 0 15px;
+            }
+
+            .kuis {
+                margin: 15px;
+                padding: 25px 18px;
+            }
+
+            .menu {
+                flex-direction: column;
+            }
+
+            .menu a {
+                text-align: center;
+            }
+
+            #soal {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+            <h2>FOOTBALL</h2>
+        </div>
+    </header>
+
+    <div class="menu">
+        <a href="index.html">← Beranda</a>
+        <a href="Beranda_Game.html">Daftar Game</a>
+    </div>
+
+    <!-- KUIS -->
+    <div class="kuis" id="kuis">
+
+        <div class="info">
+            <span id="nomor">Soal 1/8</span>
+            <span id="skor">Skor: 0</span>
+        </div>
+
+        <div class="progress">
+            <div id="bar"></div>
+        </div>
+
+        <h1>Kuis Sepak Bola ⚽</h1>
+
+        <h2 id="soal"></h2>
+
+        <div class="pilihan" id="pilihan"></div>
+
+        <p id="penjelasan"></p>
+
+        <button id="lanjut" style="display:none;">
+            Lanjut →
+        </button>
+
+    </div>
+
+
+    <!-- HASIL -->
+    <div class="kuis" id="hasil">
+
+        <div id="emoji">🏆</div>
+
+        <h1>Kuis Selesai!</h1>
+
+        <div id="nilai">0 / 8</div>
+
+        <p id="pesan"></p>
+
+        <br>
+
+        <button onclick="mulai()">Main Lagi</button>
+
+    </div>
+
+
+    <footer>
+        <h3><img src="logo.png" alt="Football" width="20" height="20"> FOOTBALL</h3>
+        <p>Sepak bola menyatukan kita melalui permainan</p>
+        <p>© 2026 Football</p>
+    </footer>
+
+
+    <script>
+
+        const soalKuis = [
+            {
+                soal: "Berapa jumlah pemain setiap tim?",
+                pilihan: ["9", "10", "11", "12"],
+                benar: 2,
+                penjelasan: "Setiap tim memiliki 11 pemain."
+            },
+            {
+                soal: "Piala Dunia diadakan setiap berapa tahun?",
+                pilihan: ["2 tahun", "3 tahun", "4 tahun", "5 tahun"],
+                benar: 2,
+                penjelasan: "Piala Dunia diadakan setiap 4 tahun."
+            },
+            {
+                soal: "Siapa juara Piala Dunia 2022?",
+                pilihan: ["Prancis", "Argentina", "Brasil", "Jerman"],
+                benar: 1,
+                penjelasan: "Argentina menjadi juara Piala Dunia 2022."
+            },
+            {
+                soal: "Kartu apa yang membuat pemain keluar?",
+                pilihan: ["Kuning", "Hijau", "Merah", "Biru"],
+                benar: 2,
+                penjelasan: "Kartu merah membuat pemain dikeluarkan."
+            },
+            {
+                soal: "Berapa menit waktu normal pertandingan?",
+                pilihan: ["60", "80", "90", "120"],
+                benar: 2,
+                penjelasan: "Waktu normal pertandingan adalah 90 menit."
+            },
+            {
+                soal: "Siapa yang boleh memegang bola dengan tangan?",
+                pilihan: ["Bek", "Kiper", "Gelandang", "Penyerang"],
+                benar: 1,
+                penjelasan: "Kiper boleh memegang bola di area penalti."
+            },
+            {
+                soal: "Tendangan dari titik 11 meter disebut?",
+                pilihan: ["Bebas", "Sudut", "Lemparan", "Penalti"],
+                benar: 3,
+                penjelasan: "Tendangan tersebut disebut penalti."
+            },
+            {
+                soal: "Negara tempat lahirnya sepak bola modern?",
+                pilihan: ["Inggris", "Spanyol", "Italia", "Brasil"],
+                benar: 0,
+                penjelasan: "Sepak bola modern berkembang di Inggris."
+            }
+        ];
+
+
+        let nomor = 0;
+        let skor = 0;
+        let sudahMenjawab = false;
+
+
+        function acakSoal() {
+            soalKuis.sort(() => Math.random() - 0.5);
+        }
+
+
+        function mulai() {
+
+            nomor = 0;
+            skor = 0;
+
+            acakSoal();
+
+            document.getElementById("hasil").style.display = "none";
+            document.getElementById("kuis").style.display = "block";
+
+            tampilkanSoal();
+        }
+
+
+        function tampilkanSoal() {
+
+            sudahMenjawab = false;
+
+            let soal = soalKuis[nomor];
+
+            document.getElementById("nomor").textContent =
+                "Soal " + (nomor + 1) + "/8";
+
+            document.getElementById("skor").textContent =
+                "Skor: " + skor;
+
+            document.getElementById("soal").textContent =
+                soal.soal;
+
+            document.getElementById("penjelasan").textContent = "";
+
+            document.getElementById("lanjut").style.display = "none";
+
+            document.getElementById("bar").style.width =
+                ((nomor + 1) / soalKuis.length * 100) + "%";
+
+
+            let pilihan = document.getElementById("pilihan");
+
+            pilihan.innerHTML = "";
+
+
+            soal.pilihan.forEach(function(jawaban, index) {
+
+                let tombol = document.createElement("button");
+
+                tombol.textContent = jawaban;
+
+                tombol.onclick = function() {
+                    cekJawaban(index);
+                };
+
+                pilihan.appendChild(tombol);
+
+            });
+        }
+
+
+        function cekJawaban(jawaban) {
+
+            if (sudahMenjawab) return;
+
+            sudahMenjawab = true;
+
+            let soal = soalKuis[nomor];
+
+            let tombol =
+                document.getElementById("pilihan").children;
+
+
+            if (jawaban === soal.benar) {
+
+                skor++;
+
+                tombol[jawaban].classList.add("benar");
+
+                document.getElementById("penjelasan").textContent =
+                    "✅ Benar! " + soal.penjelasan;
+
+            } else {
+
+                tombol[jawaban].classList.add("salah");
+
+                tombol[soal.benar].classList.add("benar");
+
+                document.getElementById("penjelasan").textContent =
+                    "❌ Salah! " + soal.penjelasan;
+            }
+
+
+            for (let i = 0; i < tombol.length; i++) {
+                tombol[i].disabled = true;
+            }
+
+
+            document.getElementById("skor").textContent =
+                "Skor: " + skor;
+
+            document.getElementById("lanjut").style.display =
+                "inline-block";
+
+            if (nomor === soalKuis.length - 1) {
+                document.getElementById("lanjut").textContent =
+                    "Lihat Hasil";
+            }
+        }
+
+
+        document.getElementById("lanjut").onclick = function() {
+
+            nomor++;
+
+            if (nomor < soalKuis.length) {
+                tampilkanSoal();
+            } else {
+                tampilkanHasil();
+            }
+
+        };
+
+
+        function tampilkanHasil() {
+
+            document.getElementById("kuis").style.display = "none";
+            document.getElementById("hasil").style.display = "block";
+
+            document.getElementById("nilai").textContent =
+                skor + " / " + soalKuis.length;
+
+
+            if (skor === 8) {
+
+                document.getElementById("emoji").textContent = "🏆";
+
+                document.getElementById("pesan").textContent =
+                    "Sempurna! Kamu penggemar sepak bola sejati.";
+
+            } else if (skor >= 6) {
+
+                document.getElementById("emoji").textContent = "🥇";
+
+                document.getElementById("pesan").textContent =
+                    "Hebat! Pengetahuan sepak bolamu sangat bagus.";
+
+            } else if (skor >= 4) {
+
+                document.getElementById("emoji").textContent = "🥈";
+
+                document.getElementById("pesan").textContent =
+                    "Lumayan! Coba lagi untuk mendapatkan skor lebih tinggi.";
+
+            } else {
+
+                document.getElementById("emoji").textContent = "⚽";
+
+                document.getElementById("pesan").textContent =
+                    "Jangan menyerah, coba lagi!";
+
+            }
+        }
+
+
+        mulai();
+
+    </script>
+
+</body>
+
+</html>
