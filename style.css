@@ -10,7 +10,7 @@ body {
 
 header {
     height: 80px;
-    background: #d7d7d7;
+    background-color:#777;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,6 +129,10 @@ nav a:hover {
 .tentang {
     padding: 80px 10%;
     background: #ffffff;
+    background-image: url("putih.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .tentang-content {
@@ -233,6 +237,11 @@ nav a:hover {
     background-color:#fbf9f9;
     color: rgb(11, 10, 10);
     text-align: center;
+    background-image: url("putih.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .nilai h2 {
@@ -323,10 +332,15 @@ nav a:hover {
         0 16px 20px rgba(0, 0, 0, 0.5);
 }
 
+/*Slide 6*/
 footer {
-    background: #fbfbfb;
+    background-image: url("putih.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
-    padding: 10px;
+    padding: 30px 10px;
+    color: rgb(3, 3, 3);
 }
 
 footer h3 {
@@ -337,6 +351,6 @@ footer h3 {
 }
 
 footer p {
-    color: #555;
+    color: rgb(3, 3, 3);
     margin-top: 8px;
 }
