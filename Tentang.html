@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Sepak Bola</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+            background-image: url("putih.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* HEADER */
+        header {
+            height: 80px;
+            background-color: #777;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 35px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 48px;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            font-size: 13px;
+        }
+
+        nav a:hover,
+        nav a.aktif {
+            color: #005ac9;
+        }
+
+        /* MAIN */
+        main {
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 70px 10%;
+            background: linear-gradient(135deg, #f4f8ff, #ffffff);
+        }
+
+        /* TEKS */
+        .teks {
+            flex: 1;
+        }
+
+        .judul-kecil {
+            color: #005ac9;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #005ac9;
+        }
+
+        .garis {
+            width: 80px;
+            height: 5px;
+            background: #005ac9;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .deskripsi {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        /* TOMBOL */
+        button {
+            background: #005ac9;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 30px;
+        }
+
+        button:hover {
+            background: #003f91;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 90, 201, 0.3);
+        }
+
+        /* KARTU */
+        .informasi {
+            display: flex;
+            gap: 15px;
+        }
+
+        .box {
+            background: white;
+            width: 160px;
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border-bottom: 4px solid #005ac9;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 90, 201, 0.2);
+        }
+
+        .icon {
+            margin-bottom: 10px;
+        }
+
+        .icon img {
+            width: 55px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .box h3 {
+            color: #005ac9;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* GAMBAR */
+        .gambar {
+            width: 43%;
+            position: relative;
+            padding: 20px;
+        }
+
+        .gambar img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .gambar img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 90, 201, 0.3);
+        }
+
+        /* KOTAK BIRU */
+        .hijau {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #005ac9;
+            right: -5px;
+            top: -5px;
+            border-radius: 20px;
+        }
+
+        /* TEKS GAMBAR */
+        .teks-gambar {
+            position: absolute;
+            bottom: 45px;
+            left: 45px;
+            z-index: 3;
+            color: white;
+            text-shadow: 1px 2px 6px black;
+        }
+
+        .teks-gambar b {
+            font-size: 28px;
+            display: block;
+        }
+
+        .teks-gambar span {
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url("footer.png");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+            text-align: center;
+            padding: 35px 10px;
+        }
+
+        footer h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            main {
+                flex-direction: column;
+                padding: 50px 5%;
+            }
+
+            .teks {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .informasi {
+                flex-wrap: wrap;
+            }
+
+            .box {
+                width: 30%;
+                min-width: 140px;
+            }
+
+            .gambar {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            header {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .informasi {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+            .gambar {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .gambar img {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            <img src="Logo.png" alt="Logo Football">
+            <h2>FOOTBALL</h2>
+        </div>
+
+        <nav>
+            <a href="Beranda.html">BERANDA</a>
+            <a href="Tentang.html" class="aktif">TENTANG</a>
+            <a href="Tim.html">TIM</a>
+        </nav>
+
+    </header>
+
+
+    <!-- BAGIAN UTAMA -->
+    <main>
+
+        <!-- BAGIAN KIRI -->
+        <div class="teks">
+
+            <p class="judul-kecil">
+                MENGENAL OLAHRAGA
+            </p>
+
+            <h1>
+                APA ITU<br>
+                <span>SEPAK BOLA?</span>
+            </h1>
+
+            <div class="garis"></div>
+
+            <p class="deskripsi">
+                Sepak bola adalah olahraga yang dimainkan oleh
+                dua tim, masing-masing terdiri dari 11 pemain.
+                Permainan dilakukan di lapangan berbentuk
+                persegi panjang menggunakan bola.
+            </p>
+
+            <button onclick="tampilkanPesan()">
+                ⚽ Kenapa Sepak Bola?
+            </button>
+
+
+            <!-- INFORMASI -->
+            <div class="informasi">
+
+                <div class="box">
+
+                    <div class="icon">
+                        <img src="Satu.png" alt="Kekompakan">
+                    </div>
+
+                    <h3>Kekompakan</h3>
+
+                    <p>
+                        Mengajarkan kekompakan,
+                        kerja sama dan peduli
+                        terhadap sesama.
+                    </p>
+
+                </div>
+
+
+                <div class="box">
+
+                    <div class="icon">
+                        <img src="Dua.png" alt="Disiplin">
+                    </div>
+
+                    <h3>Disiplin</h3>
+
+                    <p>
+                        Mengajarkan kerja keras,
+                        tanggung jawab dan
+                        kedisiplinan.
+                    </p>
+
+                </div>
+
+
+                <div class="box">
+
+                    <div class="icon">
+                        <img src="Tiga.png" alt="Semangat">
+                    </div>
+
+                    <h3>Semangat</h3>
+
+                    <p>
+                        Menumbuhkan sportivitas
+                        dan tidak mudah
+                        menyerah.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BAGIAN KANAN -->
+        <div class="gambar">
+
+            <div class="hijau"></div>
+
+            <img id="gambarSepatu"
+                 src="sepatu.jpg"
+                 alt="Sepak Bola"
+                 onclick="ubahGambar()">
+
+            <div class="teks-gambar">
+                <b>FOOTBALL</b>
+                <span>PLAY WITH PASSION</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>⚽ FOOTBALL</h3>
+
+        <p>
+            © 2026 Football | Bermain Bersama, Berjuang Bersama
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function tampilkanPesan() {
+            alert(
+                "Sepak bola mengajarkan kekompakan, disiplin, semangat, dan sportivitas!"
+            );
+        }
+
+        function ubahGambar() {
+
+            let gambar = document.getElementById("gambarSepatu");
+
+            if (gambar.src.includes("sepatu.jpg")) {
+                gambar.src = "bola.jpg";
+            } else {
+                gambar.src = "sepatu.jpg";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

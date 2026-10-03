@@ -10,7 +10,7 @@ body {
 
 header {
     height: 80px;
-    background-color:#777;
+    background-color: #777;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +41,6 @@ nav a {
     font-weight: bold;
     color: black;
     font-size: 13px;
-
 }
 
 nav a:hover {
@@ -124,7 +123,7 @@ nav a:hover {
     color: #19c900;
 }
 
-/*Slide 2*/
+/* Slide 2 */
 
 .tentang {
     padding: 80px 10%;
@@ -156,7 +155,6 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-
 .kotak {
     display: flex;
     gap: 15px;
@@ -176,19 +174,21 @@ nav a:hover {
     color: #1eff01;
 }
 
-/*Slide 3*/
+/* Slide 3 */
+
 .dasar {
     padding: 80px 10%;
     background-image: url("hitam.jpg");
-    color:#ffffff;
+    color: #ffffff;
 }
+
 .dasar span {
-    color:rgb(36, 0, 126);
+    color: rgb(36, 0, 126);
     -webkit-text-stroke: 1px rgb(36, 0, 126);
 }
 
 .dasar p {
-    color:#646161;
+    color: #646161;
     font-weight: bold;
 }
 
@@ -231,17 +231,17 @@ nav a:hover {
     line-height: 1.5;
 }
 
-/*Slide 4*/
+/* Slide 4 */
+
 .nilai {
     padding: 80px 10%;
-    background-color:#fbf9f9;
+    background-color: #fbf9f9;
     color: rgb(11, 10, 10);
     text-align: center;
     background-image: url("putih.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
 .nilai h2 {
@@ -257,14 +257,14 @@ nav a:hover {
     line-height: 1.6;
 }
 
-/*Slide 5*/
+/* Slide 5 */
+
 .game-section {
     padding: 80px 10%;
     background-image: url("bg.game.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     text-align: center;
 }
 
@@ -284,6 +284,7 @@ nav a:hover {
     -webkit-text-stroke: 2px black;
     font-weight: 900;
     letter-spacing: 2px;
+
     text-shadow:
         4px 4px 0 #e63946,
         7px 7px 0 black;
@@ -332,7 +333,8 @@ nav a:hover {
         0 16px 20px rgba(0, 0, 0, 0.5);
 }
 
-/*Slide 6*/
+/* Slide 6 */
+
 footer {
     background-image: url("putih.jpg");
     background-size: cover;
@@ -353,4 +355,188 @@ footer h3 {
 footer p {
     color: rgb(3, 3, 3);
     margin-top: 8px;
+}
+
+
+
+@media (max-width: 600px) {
+
+    /* HEADER */
+    header {
+        height: auto;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 42px;
+    }
+
+    .logo h2 {
+        font-size: 22px;
+    }
+
+    nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    /* HERO */
+    .hero {
+        height: 520px;
+        background-position: center;
+    }
+
+    .hero-content {
+        top: 25%;
+        left: 7%;
+        right: 7%;
+    }
+
+    .welcome {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        margin: 10px 0 20px;
+    }
+
+    .quote {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+
+    /* JUDUL */
+    .judul {
+        margin-bottom: 30px;
+    }
+
+    .judul h2 {
+        font-size: 28px;
+    }
+
+    .judul p {
+        font-size: 14px;
+    }
+
+    /* TENTANG */
+    .tentang {
+        padding: 55px 7%;
+    }
+
+    .tentang-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tentang-text h3 {
+        font-size: 23px;
+    }
+
+    .tentang-text p {
+        font-size: 14px;
+    }
+
+    .kotak {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .kotak div {
+        width: 85px;
+        height: 85px;
+        padding-top: 20px;
+    }
+
+    .kotak h2 {
+        font-size: 20px;
+    }
+
+    /* DASAR */
+    .dasar {
+        padding: 55px 7%;
+    }
+
+    .judul-dasar {
+        margin-bottom: 30px;
+    }
+
+    .card-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .card .icon {
+        font-size: 35px;
+    }
+
+    /* NILAI */
+
+    .nilai {
+        padding: 55px 7%;
+    }
+
+    .nilai h2 {
+        font-size: 28px;
+    }
+
+    .nilai p {
+        font-size: 14px;
+    }
+
+    /* GAME */
+    .game-section {
+        padding: 60px 7%;
+    }
+
+    .game-section h2 {
+        font-size: 35px;
+        -webkit-text-stroke: 1px black;
+
+        text-shadow:
+            3px 3px 0 #e63946,
+            5px 5px 0 black;
+    }
+
+    .game-section p {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+
+    .game-section button {
+        width: 90%;
+        padding: 13px 20px;
+        font-size: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 25px 15px;
+    }
+    footer h3 {
+        font-size: 18px;
+    }
+    footer p {
+        font-size: 12px;
+    }
 }
