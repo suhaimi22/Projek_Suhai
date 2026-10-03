@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim | Football</title>
+    <link rel="stylesheet" href="Pemain.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo Football">
+            <h2>FOOTBALL</h2>
+        </div>
+        <nav aria-label="Menu utama">
+            <a href="Beranda.html">BERANDA</a>
+            <a href="Tentang.html">TENTANG</a>
+            <a href="Pemain.html" class="aktif" aria-current="page">PEMAIN</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>KENALI PEMAIN FAVORIT KAMI</h1>
+        <p class="sub">Klik kartu untuk melihat profil singkat pemain.</p>
+
+        <section class="daftar" id="daftarPemain" aria-label="Daftar pemain favorit"></section>
+    </main>
+
+    <!-- POP-UP DETAIL -->
+    <dialog id="detail" aria-labelledby="detailNama">
+        <button class="tutup" id="tutup" aria-label="Tutup">✕</button>
+        <img id="detailFoto" alt="">
+        <div class="isi">
+            <p class="klub" id="detailKlub"></p>
+            <h2 id="detailNama"></h2>
+            <ul>
+                <li><span>Posisi</span><b id="detailPosisi"></b></li>
+                <li><span>Nomor</span><b id="detailNomor"></b></li>
+                <li><span>Negara</span><b id="detailNegara"></b></li>
+            </ul>
+            <p id="detailDeskripsi"></p>
+        </div>
+    </dialog>
+
+    <footer>
+        <h3>⚽ FOOTBALL</h3>
+        <p>© 2026 Football | Sepak bola menyatukan kita melalui permainan</p>
+    </footer>
+
+    <script src="Pemain.js"></script>
+</body>
+</html>

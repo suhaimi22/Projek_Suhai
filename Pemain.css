@@ -1,0 +1,266 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --biru: #005ac9;
+    --biru-tua: #003f91;
+    --hitam: #111;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: linear-gradient(135deg, #f4f8ff, #ffffff);
+}
+
+/* HEADER */
+header {
+    height: 80px;
+    background: #777;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+}
+.logo { 
+    display: flex; align-items: center; gap: 15px;
+}
+.logo img { 
+    width: 48px; 
+}
+.logo h2 { 
+    font-size: 24px; 
+}
+nav { 
+    display: flex; gap: 40px; 
+}
+nav a { 
+    text-decoration: none;
+    font-weight: bold; 
+    color: #000; 
+    font-size: 13px; 
+}
+nav a:hover, 
+nav a.aktif { 
+    color: var(--biru); 
+}
+
+/* MAIN */
+main {
+    min-height: calc(100vh - 160px);
+    padding: 60px 8% 80px;
+    text-align: center;
+}
+h1 {
+    font-size: 40px; 
+    letter-spacing: 1px; 
+}
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    margin: 14px auto 0;
+    background: var(--biru);
+    border-radius: 10px;
+}
+.sub { 
+    color: #666; 
+    margin: 16px 0 45px; }
+
+/* KARTU */
+.daftar {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.kartu {
+    width: 260px;
+    background: #fff;
+    border: 3px solid var(--hitam);
+    box-shadow: 7px 7px 0 var(--hitam);
+    cursor: pointer;
+    text-align: center;
+    font: inherit;
+    padding: 0;
+    transition: transform .25s, box-shadow .25s;
+}
+.kartu:hover, .kartu:focus-visible {
+    transform: translate(-4px, -4px);
+    box-shadow: 11px 11px 0 var(--biru);
+}
+
+.kartu:focus-visible { 
+    outline: 3px solid var(--biru); outline-offset: 4px;
+}
+
+.foto {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--biru), var(--hitam));
+}
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s;
+}
+.kartu:hover .foto img { transform: scale(1.06); }
+
+.nomor {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--biru);
+    color: #fff;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.info { 
+    padding: 14px 10px 18px; 
+}
+.info h3 { 
+    font-size: 21px; margin-bottom: 6px; 
+}
+.info .posisi { 
+    font-size: 13px; 
+    color: #666; 
+}
+.info .nama { 
+    font-size: 13px; color: var(--biru); 
+    font-weight: bold; margin-top: 6px; 
+}
+
+/* POP-UP */
+dialog {
+    margin: auto;
+    width: min(680px, 92vw);
+    border: 3px solid var(--hitam);
+    box-shadow: 10px 10px 0 var(--biru);
+    overflow: hidden;
+}
+dialog[open] { 
+    display: flex; 
+    animation: muncul .25s ease; 
+}
+dialog::backdrop { 
+    background: rgba(0, 0, 0, .65); 
+}
+@keyframes muncul { 
+    from { opacity: 0; 
+        transform: translateY(15px); } 
+        to { 
+        opacity: 1; transform: none; } 
+}
+
+dialog img { 
+    width: 45%; 
+    object-fit: cover; 
+    background: var(--biru); 
+}
+.isi { 
+    padding: 30px 25px; 
+    flex: 1; 
+    text-align: left; 
+}
+.klub { 
+    color: var(--biru); 
+    font-weight: bold; 
+    font-size: 13px; 
+}
+.isi h2 { 
+    font-size: 28px; 
+    margin: 6px 0 16px; 
+}
+.isi ul { 
+    list-style: none; 
+    margin-bottom: 16px; 
+}
+.isi li { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 8px 0; 
+    border-bottom: 1px solid #ddd; 
+    font-size: 14px; 
+}
+.isi li span { 
+    color: #666; 
+}
+.isi p:last-child { 
+    color: #555; 
+    line-height: 1.6; 
+    font-size: 14px; 
+}
+
+.tutup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: var(--hitam);
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    z-index: 2;
+}
+.tutup:hover { 
+    background: var(--biru); 
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
+    url("footer.png") center / cover;
+    color: #fff;
+    text-align: center;
+    padding: 35px 10px;
+}
+footer h3 { 
+    font-size: 22px; 
+    margin-bottom: 8px; 
+}
+footer p { 
+    font-size: 13px; 
+    color: #ddd; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header { height: auto; 
+    padding: 15px; 
+    flex-direction: column; 
+    gap: 15px; }
+    nav { 
+        gap: 18px; 
+    }
+
+    h1 { 
+        font-size: 28px; 
+    }
+
+    .daftar { 
+        gap: 35px; 
+    }
+    dialog[open] { 
+        flex-direction: column; 
+        max-height: 90vh; overflow-y: auto; 
+    }
+    dialog img { 
+        width: 100%; height: 240px; 
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        transition: none !important; 
+        animation: none !important; 
+    }
+}
