@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Sepak Bola</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f6ff;
+            color: #222;
+        }
+
+        header {
+            background-image: url("biru.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: white;
+            margin-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .video-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 90, 201, 0.20);
+            border-top: 5px solid #005ac9;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #005ac9;
+        }
+
+        p {
+            margin-top: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .kembali {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 20px;
+            background: #005ac9;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .kembali:hover {
+            background: #003f91;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 90, 201, 0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            .video-box {
+                padding: 12px;
+            }
+
+            header {
+                padding: 18px 10px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .kembali {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>VIDIO SINGKAT</h1>
+        <p>Sepakbolaku</p>
+    </header>
+
+    <div class="container">
+
+        <div class="video-box">
+
+            <video controls>
+                <source src="football.mp4" type="video/mp4">
+            </video>
+
+            <h2>Mengenal Sepak Bola</h2>
+
+            <p>
+                Sepak bola bukan hanya tentang menang 
+                atau kalah, tapi sepak bola mengajarkan 
+                kita bagaimana bekerja sama, dan adapun
+                ketika kita menang kita harus tetap rendah hati, 
+                dan ketika kalah harus bisa lapang dada menerima kekalahan.
+            </p>
+
+            <a href="Tentang.html" class="kembali">
+                ← Kembali
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

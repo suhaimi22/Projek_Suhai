@@ -231,27 +231,26 @@
         }
 
         /* FOOTER */
-        footer {
-            background-image:
-                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-                url("footer.png");
-
+       footer {
+            background-image: url("putih.jpg");
             background-size: cover;
             background-position: center;
-
-            color: white;
+            background-repeat: no-repeat;
             text-align: center;
-            padding: 35px 10px;
+            padding: 30px 10px;
+            color: rgb(3, 3, 3);
         }
 
         footer h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         footer p {
-            font-size: 13px;
-            color: #ddd;
+            color: rgb(3, 3, 3);
+            margin-top: 8px;
         }
 
         /* RESPONSIVE */
@@ -325,6 +324,21 @@
             .gambar img {
                 height: 350px;
             }
+
+            .btn-video {
+                display: inline-block;
+                padding: 12px 25px;
+                background: #0b6623;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: bold;
+            }
+
+            .btn-video:hover {
+                background: #084d1b;
+                transform: scale(1.05);
+            }
         }
     </style>
 </head>
@@ -342,7 +356,7 @@
         <nav>
             <a href="Beranda.html">BERANDA</a>
             <a href="Tentang.html" class="aktif">TENTANG</a>
-            <a href="Tim.html">TIM</a>
+            <a href="PEMAIN.html">PEMAIN</a>
         </nav>
 
     </header>
@@ -373,7 +387,11 @@
             </p>
 
             <button onclick="tampilkanPesan()">
-                ⚽ Kenapa Sepak Bola?
+                KENAPA SEPAK BOLA?
+            </button>
+
+            <button onclick="window.location.href='vidio.html'">
+                 MASUK UNTUK VIDEO!
             </button>
 
 
@@ -454,25 +472,19 @@
 
     </main>
 
-
     <!-- FOOTER -->
     <footer>
-
-        <h3>⚽ FOOTBALL</h3>
-
-        <p>
-            © 2026 Football | Bermain Bersama, Berjuang Bersama
-        </p>
-
+        <h3><img src="logo.png" alt="Football" width="20" height="20"> FOOTBALL</h3>
+        <p>Sepak bola menyatukan kita melalui permainan</p>
+        <p>© 2026 Football</p>
     </footer>
-
 
     <!-- JAVASCRIPT -->
     <script>
 
         function tampilkanPesan() {
             alert(
-                "Sepak bola mengajarkan kekompakan, disiplin, semangat, dan sportivitas!"
+                "Karena sepak bola tetap menjadi cinta meski luka terus menyapa"
             );
         }
 
@@ -481,7 +493,11 @@
             let gambar = document.getElementById("gambarSepatu");
 
             if (gambar.src.includes("sepatu.jpg")) {
-                gambar.src = "bola.jpg";
+                gambar.src = "adidas.jpg";
+            } else if (gambar.src.includes("adidas.jpg")) {
+                gambar.src = "mizuno.jpg";
+            } else if (gambar.src.includes("mizuno.jpg")) {
+                gambar.src = "puma.jpg";
             } else {
                 gambar.src = "sepatu.jpg";
             }
