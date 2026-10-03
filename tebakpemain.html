@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -358,7 +358,6 @@
             document.getElementById("jawaban").focus();
         }
 
-
         function cekJawaban() {
 
             let jawaban = document
@@ -368,6 +367,21 @@
                 .trim();
 
             let hasil = document.getElementById("hasil");
+
+            // Jika jawaban kosong
+            if (jawaban === "") {
+
+                Swal.fire({
+                    title: "Jawaban Kosong!",
+                    text: "Silakan masukkan jawaban terlebih dahulu.",
+                    icon: "warning",
+                    confirmButtonText: "OK"
+                });
+
+                document.getElementById("jawaban").focus();
+
+                return;
+            }
 
             let data = pemain[nomor];
 
@@ -397,6 +411,8 @@
 
             document.getElementById("jawaban").disabled = true;
         }
+
+
 
 
         function lanjut() {
