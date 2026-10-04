@@ -179,6 +179,8 @@ nav a:hover {
 .dasar {
     padding: 80px 10%;
     background-image: url("hitam.jpg");
+    background-size: cover;        /* gambar menyesuaikan seluruh area */
+    background-repeat: no-repeat;  /* jangan diulang */
     color: #ffffff;
 }
 
